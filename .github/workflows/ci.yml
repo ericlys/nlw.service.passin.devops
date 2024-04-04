@@ -22,3 +22,14 @@ jobs:
 
     - name: Build docker image
       run: docker build -t ericlys/nlw.service.passin:${{ steps.generate_sha.outputs.sha }} .
+
+    - name: Log into the container registry
+      uses: docker/login-action@v3
+      with:
+        username: ${{ DOCKERHUB_USERNAME }}
+        password: ${{ DOCKERHUB_TOKEN }}
+    
+    - name: Push image
+      run: |
+        docker push ericlys/nlw.service.passin:${{ steps.generate_sha.outputs.sha }}
+      
