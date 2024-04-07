@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: ericlys/nlw.service.passin
   pullPolicy: Always
-  tag: c69e87e
+  tag: fed93e4
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
